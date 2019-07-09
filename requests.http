@@ -1,0 +1,59 @@
+
+
+GET http://localhost:8000/api/v1/polls/
+
+###
+
+POST http://localhost:8000/api/v1/users/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "ade",
+    "email": "adechinan@kayode.dev",
+    "password": "FiveThirtyEight"
+}
+
+###
+
+POST http://localhost:8000/api/v1/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "ade",
+    "password": "FiveThirtyEight"
+}
+
+
+###
+
+GET http://localhost:8000/api/v1/polls/ HTTP/1.1
+Authorization: token bd71868575d8d91dd034d46bd4a56728a6739af3
+
+###
+
+
+POST http://localhost:8000/api/v1/polls/ HTTP/1.1
+content-type: application/json
+Authorization: token bd71868575d8d91dd034d46bd4a56728a6739af3
+
+{
+    "question": "best man to get married with"
+}
+
+###
+
+POST http://localhost:8000/api/v1/choices/ HTTP/1.1
+content-type: application/json
+Authorization: token bd71868575d8d91dd034d46bd4a56728a6739af3
+
+{
+    "poll": 4,
+    "choice_text":"john"
+}
+
+
+###
+
+
+DELETE http://localhost:8000/api/v1/polls/5/ HTTP/1.1
+Authorization: token bd71868575d8d91dd034d46bd4a56728a6739af3
